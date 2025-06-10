@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @shovo896
 - 👀 I’m interested in Dutee,Machine learning ,Data structures and Algorithm ,IoT and MATLAB
-- 🌱 I’m currently learning Machine learning ,Flask ,Arduino 
+- 🌱 I’m currently learning Machine learning ,Numpy,Pandas ,Arduino 
 - 💞️ I’m looking to collaborate on any Machine  learning project
 - 📫 Knock me whatsapp on 01642948700 ,No call please ,just message 
 - 😄 Bihari ,Chainease ,Billy 
