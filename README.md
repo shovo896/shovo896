@@ -4,7 +4,7 @@
 - 💞️ I’m looking to collaborate on any Machine  learning project
 - 📫 Knock me whatsapp on 01642948700 ,No call please ,just message 
 - 😄 Bihari ,Chainease ,Billy 
-- ⚡ I am a boiling body ,just exchange heat with environment
+- ⚡ Cureently planing for learning flutter ,UI /UX design purpose .
 - <!---
 shovo896/shovo896 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
