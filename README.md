@@ -3,9 +3,4 @@
 - 🌱 I’m currently learning Machine learning ,Numpy,Pandas ,Arduino 
 - 💞️ I’m looking to collaborate on any Machine  learning project
 - 📫 Knock me whatsapp on 01642948700 ,No call please ,just message 
-- 😄 Bihari ,Chainease ,Billy 
-- ⚡ Cureently planing for learning flutter ,UI /UX design purpose .
-- <!---
-shovo896/shovo896 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Duteeeeeeeeeeeee meauuuuuuuu
+- 
