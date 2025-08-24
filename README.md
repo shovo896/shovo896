@@ -1,7 +1,9 @@
-<!-- Banner Section -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/shovo896/shovo896/main/shovo_github.png" alt="banner" width="100%" />
+  <a href="https://www.linkedin.com/in/ahadul-haque-shovo-071483379/" target="_blank">
+    <img src="https://github.com/shovo896/shovo896/blob/main/shovo_github.png" alt="banner" width="100%" />
+  </a>
 </p>
+
 
 <h1 align="center">👨‍💻 Ahadul Haque Shovo</h1>
 <p align="center"><i>“Life is unjust, one has to accept it as such”</i></p>
