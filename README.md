@@ -12,7 +12,7 @@
   <a href="https://www.linkedin.com/in/ahadul-haque-shovo-071483379/">
     <img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin" />
   </a>
-  <a href="mailto:ahadulshovo@example.com">
+  <a href="mailto:suvo.10info@gmail.com">
     <img src="https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail" />
   </a>
   <img src="https://komarev.com/ghpvc/?username=shovo896&label=Profile%20Views&color=green&style=for-the-badge" />
