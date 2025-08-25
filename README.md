@@ -71,32 +71,35 @@
 
 ---
 ## 📊 GitHub Analytics
+##  GitHub Analytics
 
 <p align="center">
   <!-- GitHub Stats -->
-  <img src="https://github-readme-stats.vercel.app/api?username=shovo896&show_icons=true&theme=tokyonight&count_private=true" height="170"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shovo896&layout=compact&theme=tokyonight&langs_count=8" height="170"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=shovo896&show_icons=true&theme=tokyonight&count_private=true" height="170" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shovo896&layout=compact&theme=tokyonight&langs_count=8" height="170" />
 </p>
 
 <p align="center">
-  <!-- GitHub Streak -->
-  <img src="https://streak-stats.demolab.com?user=shovo896&theme=tokyonight&date_format=j%20M%5B%20Y%5D" height="170"/>
+  <!-- GitHub Streak (new reliable URL) -->
+  <img src="https://github-readme-streak-stats-eight.vercel.app?user=shovo896&theme=tokyonight&date_format=j%20M%5B%20Y%5D" height="170" />
 </p>
 
 <p align="center">
   <!-- GitHub Trophies -->
-  <img src="https://github-profile-trophy.vercel.app/?username=shovo896&theme=tokyonight&no-frame=true&margin-w=15&margin-h=15"/>
+  <img src="https://github-profile-trophy.vercel.app/?username=shovo896&theme=tokyonight&no-frame=true&margin-w=15&margin-h=15" />
 </p>
 
 <p align="center">
-  <!-- Contribution Graph -->
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=shovo896&theme=tokyo-night&hide_border=true"/>
+  <!-- Contribution Activity Graph -->
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=shovo896&theme=tokyo-night&hide_border=true" />
 </p>
 
 <p align="center">
-  <!-- Profile Views -->
-  <img src="https://komarev.com/ghpvc/?username=shovo896&label=Profile%20Views&color=blueviolet&style=flat-square"/>
+  <!-- Profile Views Counter -->
+  <img src="https://komarev.com/ghpvc/?username=shovo896&label=Profile%20Views&color=blueviolet&style=flat-square" />
 </p>
+
+
 
 
 
