@@ -120,11 +120,7 @@
   <!-- Profile Views Counter -->
   <img src="https://komarev.com/ghpvc/?username=shovo896&label=Profile%20Views&color=blueviolet&style=flat-square" />
 </p>
-## 👀 Profile Visitors
 
-<p align="center">
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=shovo896.shovo896&right_color=blue&left_text=Unique%20Visitors" />
-</p>
 
 
 ## 📊 Coding Skill Analysis (Based on Repos)
