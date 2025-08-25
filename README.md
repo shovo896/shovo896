@@ -70,9 +70,6 @@
 🚀 Simulation of unguided missiles with **probability of hit & GUI visualization**  
 
 ---
-
-
-
 ## 📊 GitHub Analytics
 
 <p align="center">
@@ -92,7 +89,7 @@
 </p>
 
 <p align="center">
-  <!-- Activity Graph -->
+  <!-- Contribution Graph -->
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=shovo896&theme=tokyo-night&hide_border=true"/>
 </p>
 
@@ -100,6 +97,10 @@
   <!-- Profile Views -->
   <img src="https://komarev.com/ghpvc/?username=shovo896&label=Profile%20Views&color=blueviolet&style=flat-square"/>
 </p>
+
+
+
+
 
 
 ## 🤝 Let’s Connect  
