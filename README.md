@@ -99,6 +99,12 @@
   <img src="https://komarev.com/ghpvc/?username=shovo896&label=Profile%20Views&color=blueviolet&style=flat-square" />
 </p>
 
+## 📊 Coding Skill Analysis (Based on Repos)
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shovo896&theme=tokyonight&layout=donut-vertical&langs_count=8" height="300"/>
+</p>
+
 
 
 
