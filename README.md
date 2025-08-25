@@ -28,6 +28,17 @@
 - 📍 Rajshahi, Bangladesh  
 
 ---
+## ✈️ GitHub Analytics (Flying High)
+
+<p align="center" style="background-image: url('https://i.ibb.co/WK9L1F6/aircraft-sky-bg.jpg'); background-size: cover; padding: 30px; border-radius: 15px;">
+  <img src="https://github-readme-stats.vercel.app/api?username=shovo896&show_icons=true&theme=tokyonight&count_private=true" height="170"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shovo896&layout=compact&theme=tokyonight&langs_count=8" height="170"/>
+</p>
+
+<p align="center">
+  <img src="https://github-readme-streak-stats-eight.vercel.app?user=shovo896&theme=tokyonight" height="170"/>
+</p>
+
 
 ## 🌙 GitHub Analytics with Moon Theme
 
