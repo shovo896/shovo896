@@ -118,6 +118,11 @@
 
 
 
+## ⏰ Coding Habits
+
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=shovo896&theme=tokyonight&utcOffset=6" />
+</p>
 
 
 
