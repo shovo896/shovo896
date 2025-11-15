@@ -75,23 +75,6 @@
   <img src="https://img.shields.io/badge/RaspberryPi-A22846?style=for-the-badge&logo=raspberry-pi&logoColor=white"/>
 </p>
 
----
-
-## 📌 Featured Projects
-
-- 🔹 [AI-Based Personal Health Assistant](https://github.com/shovo896/AI-Based-Personal-Health-Assistant)  
-🧠 Virtual assistant that tracks health & emotional status using **AI + Python**  
-
-- 🔹 [Student Performance Analyzer](https://github.com/shovo896/student-performance-analyzer)  
-📊 Analyzes student performance using **NumPy, Pandas, Tkinter, ML models**  
-
-- 🔹 [Software-Defined Radar Simulation](https://github.com/shovo896/Software-Defined-Radar-SDRadar-Simulation-in-Python)  
-📡 Python-based **radar system simulation** with real-time analysis  
-
-- 🔹 [Auto Unguided Missile System](https://github.com/shovo896/Auto-Unguided-missile-system)  
-🚀 Simulation of unguided missiles with **probability of hit & GUI visualization**  
-
----
 ## 📊 GitHub Analytics
 ##  GitHub Analytics
 
@@ -145,7 +128,7 @@
 
 <p align="center">
   <a href="https://www.linkedin.com/in/ahadul-haque-shovo-071483379/"><img src="https://img.shields.io/badge/-LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
-  <a href="mailto:ahadulshovo@example.com"><img src="https://img.shields.io/badge/-Email-red?style=for-the-badge&logo=gmail&logoColor=white"/></a>
+  <a href="suvo10.info@gmail.com"><img src="https://img.shields.io/badge/-Email-red?style=for-the-badge&logo=gmail&logoColor=white"/></a>
   <a href="https://github.com/shovo896"><img src="https://img.shields.io/badge/-GitHub-black?style=for-the-badge&logo=github&logoColor=white"/></a>
 </p>
 
