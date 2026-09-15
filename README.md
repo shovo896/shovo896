@@ -1,17 +1,13 @@
 <p align="center">
   <a href="https://www.linkedin.com/in/ahadul-haque-shovo-071483379/">
-    <img
-      src="https://github.com/shovo896/shovo896/blob/main/shovo_github.png?raw=true"
-      alt="Ahadul Haque Shovo Banner"
-      width="100%"
-    />
+    <img src="https://github.com/shovo896/shovo896/blob/main/shovo_github.png?raw=true" alt="Ahadul Haque Shovo Banner" width="100%" />
   </a>
 </p>
 
 <h1 align="center">👨‍💻 Ahadul Haque Shovo</h1>
 
 <h3 align="center">
-AI/ML Engineer • Avionics Engineer • Researcher • Embedded AI Developer
+AI/ML Engineer • Avionics Engineer • Researcher 
 </h3>
 
 <p align="center">
@@ -20,66 +16,29 @@ AI/ML Engineer • Avionics Engineer • Researcher • Embedded AI Developer
 
 <p align="center">
   <a href="https://www.linkedin.com/in/ahadul-haque-shovo-071483379/">
-    <img
-      src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"
-      alt="LinkedIn"
-    />
+    <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
-
   <a href="mailto:suvo.10info@gmail.com">
-    <img
-      src="https://img.shields.io/badge/Gmail-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white"
-      alt="Gmail"
-    />
+    <img src="https://img.shields.io/badge/Gmail-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" />
   </a>
-
   <a href="https://github.com/shovo896">
-    <img
-      src="https://img.shields.io/badge/GitHub-shovo896-181717?style=for-the-badge&logo=github&logoColor=white"
-      alt="GitHub"
-    />
+    <img src="https://img.shields.io/badge/GitHub-shovo896-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
   </a>
 </p>
 
 🚀 About Me
 
-class AhadulHaqueShovo:
-
-    def __init__(self):
-        self.role = [
-            "AI & Machine Learning Engineer",
-            "Avionics Engineer",
-            "AI Researcher",
-            "Embedded AI Developer"
-        ]
-
-        self.research_interests = [
-            "Machine Learning",
-            "Deep Learning",
-            "Computer Vision",
-            "Radar Signal Processing",
-            "Wireless AI",
-            "mmWave Beamforming",
-            "Reinforcement Learning",
-            "Explainable AI",
-            "TinyML",
-            "UAV Intelligence",
-            "Remote Sensing",
-            "Digital Twin"
-        ]
-
-        self.programming_languages = [
-            "Python",
-            "C",
-            "C++",
-            "Java",
-            "MATLAB"
-        ]
-
-    def mission(self):
-        return "Engineering Intelligence for Real-World Systems"
-
 I work at the intersection of Artificial Intelligence, Machine Learning, Signal Processing, Radar Systems, Wireless Communication, Avionics, and Embedded Systems.
+
+🎓 Avionics Engineer
+
+🤖 AI / ML Engineer
+
+🔬 Researcher in AI, Signal Processing, and Wireless Intelligence
+
+🛰️ Interested in UAV, Radar, mmWave Beamforming, and TinyML
+
+💻 Skilled in Python, MATLAB, C, C++, Java, and Embedded Systems
 
 <p align="center">
   <b>Data → Signals → Algorithms → Intelligence → Hardware → Real-World Systems</b>
@@ -228,47 +187,6 @@ I work at the intersection of Artificial Intelligence, Machine Learning, Signal 
   <b>Consistency • Research • Engineering • Continuous Learning</b>
 </p>
 
-📈 GitHub Contribution Activity
-
-<p align="center">
-  <img
-    src="https://github-readme-activity-graph.vercel.app/graph?username=shovo896&theme=tokyo-night&hide_border=true&area=true"
-    width="100%"
-    alt="GitHub Contribution Activity"
-  />
-</p>
-
-🧭 Research Direction
-
-Artificial Intelligence
-        │
-        ├── Machine Learning
-        ├── Deep Learning
-        ├── Reinforcement Learning
-        ├── Explainable AI
-        ├── Computer Vision
-        └── NLP
-                │
-                ▼
-        Signal Intelligence
-                │
-        ├── Radar Processing
-        ├── Wireless AI
-        ├── MIMO Systems
-        ├── mmWave Beamforming
-        ├── Beam Prediction
-        └── UAV Communication
-                │
-                ▼
-        Embedded Intelligence
-                │
-        ├── TinyML
-        ├── Arduino
-        ├── ESP32
-        ├── IoT
-        ├── Sensor Systems
-        └── Avionics
-
 🎯 Current Focus
 
 AI-Assisted Radar Signal Processing
@@ -291,45 +209,40 @@ Intelligent Avionics Systems
 
 🤝 Open for Collaboration
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Artificial%20Intelligence-Collaboration-6C63FF?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Machine%20Learning-Research-FF6F00?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Radar%20%26%20Signal%20Processing-Research-009688?style=for-the-badge" />
-</p>
+I am open to collaboration in:
 
-<p align="center">
-  <img src="https://img.shields.io/badge/UAV%20Systems-Collaboration-455A64?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Wireless%20AI-Collaboration-1565C0?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/TinyML%20%26%20IoT-Collaboration-00796B?style=for-the-badge" />
-</p>
+Artificial Intelligence
+
+Machine Learning
+
+Radar & Signal Processing
+
+Wireless AI
+
+UAV Systems
+
+TinyML & IoT
+
+Remote Sensing
+
+Embedded AI
 
 📫 Let's Connect
 
 <p align="center">
   <a href="https://www.linkedin.com/in/ahadul-haque-shovo-071483379/">
-    <img
-      src="https://img.shields.io/badge/LinkedIn-Ahadul%20Haque%20Shovo-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"
-      alt="LinkedIn"
-    />
+    <img src="https://img.shields.io/badge/LinkedIn-Ahadul%20Haque%20Shovo-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
-
   <a href="mailto:suvo.10info@gmail.com">
-    <img
-      src="https://img.shields.io/badge/Gmail-Contact%20Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white"
-      alt="Gmail"
-    />
+    <img src="https://img.shields.io/badge/Gmail-Contact%20Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" />
   </a>
-
   <a href="https://github.com/shovo896">
-    <img
-      src="https://img.shields.io/badge/GitHub-shovo896-181717?style=for-the-badge&logo=github&logoColor=white"
-      alt="GitHub"
-    />
+    <img src="https://img.shields.io/badge/GitHub-shovo896-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
   </a>
 </p>
 
 <h3 align="center">✨ Engineering Meets Artificial Intelligence ✨</h3>
 
 <p align="center">
-  <b>Building intelligent systems with data, signals, algorithms and avionics.</b>
+  <b>Building intelligent systems with data, signals, algorithms, and avionics.</b>
 </p>
