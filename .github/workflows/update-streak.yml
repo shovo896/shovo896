@@ -3,283 +3,159 @@ name: Auto Update Coding Streak
 on:
   workflow_dispatch:
   schedule:
-    - cron: "15 0 * * *"
+    # Runs every 6 hours so the badge updates on the same day after a contribution.
+    - cron: "15 */6 * * *"
 
 permissions:
   contents: write
 
 jobs:
   update-streak:
-
     runs-on: ubuntu-latest
 
     steps:
-
-      - name: Checkout profile
+      - name: Checkout profile repository
         uses: actions/checkout@v4
 
-      - name: Calculate GitHub contribution streak
+      - name: Calculate streak and update README
         env:
           GH_TOKEN: ${{ secrets.PROFILE_TOKEN || github.token }}
           GH_USER: shovo896
-
         run: |
-
           python <<'PY'
-
-          import os
           import json
+          import os
           import re
           import urllib.request
-
-          from datetime import datetime, timezone, timedelta, date
-
+          from datetime import date, datetime, timedelta, timezone
 
           username = os.environ.get("GH_USER", "shovo896")
           token = os.environ["GH_TOKEN"]
-
           today = datetime.now(timezone.utc).date()
-
 
           query = """
           query($login: String!, $from: DateTime!, $to: DateTime!) {
-
             user(login: $login) {
-
-              contributionsCollection(
-                from: $from,
-                to: $to
-              ) {
-
+              contributionsCollection(from: $from, to: $to) {
                 contributionCalendar {
-
                   weeks {
-
                     contributionDays {
                       date
                       contributionCount
                     }
-
                   }
-
                 }
-
               }
-
             }
-
           }
           """
 
-
-          def fetch_year(year):
-
+          def fetch_year(year: int):
               variables = {
-
                   "login": username,
-
                   "from": f"{year}-01-01T00:00:00Z",
-
-                  "to": f"{year}-12-31T23:59:59Z"
-
+                  "to": f"{year}-12-31T23:59:59Z",
               }
 
-
-              body = json.dumps({
-
+              payload = json.dumps({
                   "query": query,
-
                   "variables": variables
+              }).encode("utf-8")
 
-              }).encode()
-
-
-              req = urllib.request.Request(
-
+              request = urllib.request.Request(
                   "https://api.github.com/graphql",
-
-                  data=body,
-
+                  data=payload,
                   headers={
-
                       "Authorization": f"Bearer {token}",
-
                       "Content-Type": "application/json",
-
-                      "User-Agent":
-                      "shovo896-profile-streak"
-
-                  }
-
+                      "User-Agent": "shovo896-profile-streak-action",
+                  },
+                  method="POST",
               )
 
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  result = json.loads(response.read().decode("utf-8"))
 
-              with urllib.request.urlopen(
-                  req,
-                  timeout=30
-              ) as response:
+              if result.get("errors"):
+                  raise RuntimeError(f"GitHub GraphQL error: {result['errors']}")
 
-                  data = json.loads(
-                      response.read().decode()
-                  )
+              user = result.get("data", {}).get("user")
+              if not user:
+                  raise RuntimeError(f"GitHub user '{username}' was not found.")
 
+              calendar = user["contributionsCollection"]["contributionCalendar"]
 
-              if "errors" in data:
-                  raise Exception(data["errors"])
-
-
-              calendar = (
-                  data["data"]["user"]
-                      ["contributionsCollection"]
-                      ["contributionCalendar"]
-              )
-
-
-              result = {}
-
-
+              year_days = {}
               for week in calendar["weeks"]:
-
                   for day in week["contributionDays"]:
+                      year_days[date.fromisoformat(day["date"])] = int(
+                          day["contributionCount"]
+                      )
 
-                      result[
-                          date.fromisoformat(
-                              day["date"]
-                          )
-                      ] = day[
-                          "contributionCount"
-                      ]
+              return year_days
 
+          # Fetch enough history for a 404+ day streak crossing year boundaries.
+          contributions = {}
+          for year in (today.year - 2, today.year - 1, today.year):
+              contributions.update(fetch_year(year))
 
-              return result
-
-
-          days = {}
-
-
-          # Three years, so a long streak crossing New Year
-          # can still be calculated correctly.
-
-          for year in [
-              today.year - 2,
-              today.year - 1,
-              today.year
-          ]:
-
-              days.update(
-                  fetch_year(year)
-              )
-
-
+          # If today has no contribution yet, preserve the streak through yesterday.
           cursor = today
-
-
-          # Do not reset the streak early in the day
-          # before today's first contribution.
-
-          if days.get(cursor, 0) == 0:
-
+          if contributions.get(cursor, 0) == 0:
               cursor -= timedelta(days=1)
-
 
           streak = 0
-
-
-          while days.get(cursor, 0) > 0:
-
+          while contributions.get(cursor, 0) > 0:
               streak += 1
-
               cursor -= timedelta(days=1)
 
-
-          print(
-              f"Current streak = {streak} days"
-          )
-
+          print(f"Calculated current streak: {streak} days")
 
           readme_path = "README.md"
-
-
-          with open(
-              readme_path,
-              "r",
-              encoding="utf-8"
-          ) as file:
-
+          with open(readme_path, "r", encoding="utf-8") as file:
               readme = file.read()
 
+          start_marker = "<!-- STREAK_START -->"
+          end_marker = "<!-- STREAK_END -->"
 
-          new_section = f"""<!-- STREAK_START -->
-          <p align="center">
-            <img
-              src="https://img.shields.io/badge/🔥%20CURRENT%20STREAK-{streak}%20DAYS-FF5722?style=for-the-badge&labelColor=0D1117"
-              alt="GitHub Coding Streak"
-            />
-          </p>
-          <!-- STREAK_END -->"""
-
-
-          pattern = (
-              r"<!-- STREAK_START -->"
-              r".*?"
-              r"<!-- STREAK_END -->"
-          )
-
-
-          updated = re.sub(
-
-              pattern,
-
-              new_section,
-
-              readme,
-
-              flags=re.DOTALL
-
-          )
-
-
-          if updated == readme:
-
+          if start_marker not in readme or end_marker not in readme:
               raise RuntimeError(
-                  "STREAK markers were not found in README.md"
+                  "README.md must contain <!-- STREAK_START --> and <!-- STREAK_END -->."
               )
 
+          replacement = f"""<!-- STREAK_START -->
+<p align="center">
+  <img
+    src="https://img.shields.io/badge/CURRENT%20STREAK-{streak}%20DAYS-FF5722?style=for-the-badge&labelColor=0D1117"
+    alt="GitHub Coding Streak"
+  />
+</p>
+<!-- STREAK_END -->"""
 
-          with open(
-              readme_path,
-              "w",
-              encoding="utf-8"
-          ) as file:
+          pattern = re.compile(
+              r"<!-- STREAK_START -->.*?<!-- STREAK_END -->",
+              flags=re.DOTALL,
+          )
 
-              file.write(updated)
+          updated_readme = pattern.sub(replacement, readme, count=1)
 
+          with open(readme_path, "w", encoding="utf-8", newline="\n") as file:
+              file.write(updated_readme)
 
+          print("README.md updated successfully.")
           PY
 
-
       - name: Commit updated README
-
         run: |
-
-          git config user.name \
-          "github-actions[bot]"
-
-          git config user.email \
-          "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add README.md
 
-          if git diff --cached --quiet
-          then
-
-            echo "No streak change"
-
-          else
-
-            git commit \
-            -m "🔥 Update coding streak"
-
-            git push
-
+          if git diff --cached --quiet; then
+            echo "No streak change. Nothing to commit."
+            exit 0
           fi
+
+          git commit -m "chore: update GitHub coding streak"
+          git push
