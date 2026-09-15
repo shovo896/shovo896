@@ -1,0 +1,302 @@
+name: Auto Update GitHub Streak
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "20 0 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-streak:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout profile repository
+        uses: actions/checkout@v4
+
+      - name: Generate streak card from GitHub contributions
+        env:
+          GH_TOKEN: ${{ secrets.PROFILE_TOKEN || github.token }}
+          GH_USER: shovo896
+        run: |
+          mkdir -p assets
+
+          python <<'PY'
+          import os
+          import json
+          import urllib.request
+          from datetime import datetime, timezone, timedelta, date
+
+          token = os.environ["GH_TOKEN"]
+          username = os.environ.get("GH_USER", "shovo896")
+
+          today = datetime.now(timezone.utc).date()
+          years = [today.year - 1, today.year]
+
+          query = """
+          query($login: String!, $from: DateTime!, $to: DateTime!) {
+            user(login: $login) {
+              contributionsCollection(from: $from, to: $to) {
+                contributionCalendar {
+                  totalContributions
+                  weeks {
+                    contributionDays {
+                      date
+                      contributionCount
+                    }
+                  }
+                }
+              }
+            }
+          }
+          """
+
+          def fetch_year(year):
+              start = f"{year}-01-01T00:00:00Z"
+              end = f"{year}-12-31T23:59:59Z"
+
+              payload = json.dumps({
+                  "query": query,
+                  "variables": {
+                      "login": username,
+                      "from": start,
+                      "to": end
+                  }
+              }).encode()
+
+              req = urllib.request.Request(
+                  "https://api.github.com/graphql",
+                  data=payload,
+                  headers={
+                      "Authorization": f"Bearer {token}",
+                      "Content-Type": "application/json",
+                      "User-Agent": "github-profile-streak-action"
+                  }
+              )
+
+              with urllib.request.urlopen(req, timeout=30) as response:
+                  data = json.loads(response.read().decode())
+
+              if "errors" in data:
+                  raise RuntimeError(data["errors"])
+
+              user = data.get("data", {}).get("user")
+              if not user:
+                  raise RuntimeError(f"GitHub user '{username}' not found")
+
+              cal = user["contributionsCollection"]["contributionCalendar"]
+
+              result = {}
+              for week in cal["weeks"]:
+                  for day in week["contributionDays"]:
+                      result[day["date"]] = day["contributionCount"]
+
+              return result, cal["totalContributions"]
+
+          days = {}
+          total = 0
+
+          for year in years:
+              ydays, ytotal = fetch_year(year)
+              days.update(ydays)
+              total += ytotal
+
+          days = {
+              date.fromisoformat(k): v
+              for k, v in days.items()
+              if date.fromisoformat(k) <= today
+          }
+
+          # Current streak
+          cursor = today
+
+          # If today has no contribution yet, count streak through yesterday.
+          if days.get(cursor, 0) == 0:
+              cursor -= timedelta(days=1)
+
+          current = 0
+
+          while days.get(cursor, 0) > 0:
+              current += 1
+              cursor -= timedelta(days=1)
+
+          # Longest streak
+          longest = 0
+          run = 0
+
+          start = min(days) if days else today
+          cursor = start
+
+          while cursor <= today:
+              if days.get(cursor, 0) > 0:
+                  run += 1
+                  longest = max(longest, run)
+              else:
+                  run = 0
+
+              cursor += timedelta(days=1)
+
+          updated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+
+          svg = f"""<svg xmlns="http://www.w3.org/2000/svg"
+          width="900"
+          height="280"
+          viewBox="0 0 900 280">
+
+          <defs>
+
+            <linearGradient id="bg"
+            x1="0"
+            y1="0"
+            x2="1"
+            y2="1">
+
+              <stop offset="0%"
+              stop-color="#0d1117"/>
+
+              <stop offset="100%"
+              stop-color="#161b22"/>
+
+            </linearGradient>
+
+            <linearGradient id="fire"
+            x1="0"
+            y1="0"
+            x2="1"
+            y2="0">
+
+              <stop offset="0%"
+              stop-color="#ff7a18"/>
+
+              <stop offset="55%"
+              stop-color="#ff3d00"/>
+
+              <stop offset="100%"
+              stop-color="#ffb000"/>
+
+            </linearGradient>
+
+          </defs>
+
+          <rect
+          x="1"
+          y="1"
+          width="898"
+          height="278"
+          rx="22"
+          fill="url(#bg)"
+          stroke="#30363d"
+          stroke-width="2"/>
+
+          <text
+          x="450"
+          y="55"
+          text-anchor="middle"
+          fill="#c9d1d9"
+          font-family="Segoe UI, Arial, sans-serif"
+          font-size="25"
+          font-weight="700">
+
+          🔥 GITHUB CODING STREAK
+
+          </text>
+
+          <text
+          x="450"
+          y="145"
+          text-anchor="middle"
+          fill="url(#fire)"
+          font-family="Segoe UI, Arial, sans-serif"
+          font-size="78"
+          font-weight="800">
+
+          {current} DAYS
+
+          </text>
+
+          <text
+          x="260"
+          y="202"
+          text-anchor="middle"
+          fill="#8b949e"
+          font-family="Segoe UI, Arial, sans-serif"
+          font-size="17">
+
+          Longest Streak
+
+          </text>
+
+          <text
+          x="260"
+          y="231"
+          text-anchor="middle"
+          fill="#f0f6fc"
+          font-family="Segoe UI, Arial, sans-serif"
+          font-size="24"
+          font-weight="700">
+
+          {longest} days
+
+          </text>
+
+          <text
+          x="640"
+          y="202"
+          text-anchor="middle"
+          fill="#8b949e"
+          font-family="Segoe UI, Arial, sans-serif"
+          font-size="17">
+
+          Contributions ({today.year-1}–{today.year})
+
+          </text>
+
+          <text
+          x="640"
+          y="231"
+          text-anchor="middle"
+          fill="#f0f6fc"
+          font-family="Segoe UI, Arial, sans-serif"
+          font-size="24"
+          font-weight="700">
+
+          {total}
+
+          </text>
+
+          <text
+          x="450"
+          y="262"
+          text-anchor="middle"
+          fill="#6e7681"
+          font-family="Segoe UI, Arial, sans-serif"
+          font-size="12">
+
+          Auto-updated: {updated}
+
+          </text>
+
+          </svg>"""
+
+          with open("assets/streak.svg", "w", encoding="utf-8") as f:
+              f.write(svg)
+
+          print(f"Current streak: {current} days")
+          print(f"Longest streak: {longest} days")
+          PY
+
+      - name: Commit updated streak card
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add assets/streak.svg
+
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "chore: update profile streak"
+            git push
+          fi
