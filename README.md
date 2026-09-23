@@ -176,7 +176,7 @@ I work at the intersection of Artificial Intelligence, Machine Learning, Signal 
 <!-- STREAK_START -->
 <p align="center">
   <img
-    src="https://img.shields.io/badge/CURRENT%20STREAK-410%20DAYS-FF5722?style=for-the-badge&labelColor=0D1117"
+    src="https://img.shields.io/badge/CURRENT%20STREAK-411%20DAYS-FF5722?style=for-the-badge&labelColor=0D1117"
     alt="GitHub Coding Streak"
   />
 </p>
